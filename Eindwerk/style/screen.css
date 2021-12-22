@@ -1,0 +1,1173 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 400;
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 600;
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  --custom-option__color: rgb(75, 87, 255);
+  --custom-option__color_light: rgb(137, 145, 255);
+  --global-whitespace-md: 13px;
+  --global-input-backgroundColor: grey;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --global-whitespace-md: 16px;
+  }
+}
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  background-color: var(--global-html-backgroundColor);
+  color: var(--global-html-color);
+  font-size: var(--global-whitespace-md);
+  line-height: 1.5;
+  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --global-whitespace-md: 16px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 var(--global-whitespace);
+}
+
+ul,
+ol {
+  padding-left: var(--global-whitespace);
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: var(--global-whitespace-sm);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 var(--global-whitespace);
+}
+
+a,
+a:visited {
+  transition: all var(--global-transitionTiming-alpha);
+  color: var(--global-color-alpha);
+  outline-color: var(--global-link-BoxShadowColor);
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+  color: var(--global-color-alpha-light);
+  box-shadow: 0 0 5px 5px var(--custom-option__color_light);
+}
+
+a:active {
+  color: var(--global-color-alpha-dark);
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--global-placeholder-color);
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: var(--global-whitespace) var(--global-whitespace) 0;
+}
+
+.o-row--login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* size modifiers */
+
+.o-row--lg {
+  padding-top: var(--global-whitespace-xl);
+  padding-bottom: var(--global-whitespace);
+}
+
+.o-row--xl {
+  padding-top: var(--global-whitespace-xxl);
+  padding-bottom: var(--global-whitespace-xl);
+}
+
+@media (min-width: 768px) {
+  .o-row {
+    padding-left: var(--global-whitespace-xl);
+    padding-right: var(--global-whitespace-xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .o-row--xl {
+    padding-top: 96px;
+    padding-bottom: var(--global-whitespace-xxl);
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  position: relative;
+}
+
+.o-section + .o-section {
+  padding-top: var(--global-whitespace);
+}
+
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+    padding-top: var(--global-whitespace-xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .o-section--xl + .o-section--xl {
+    padding-top: var(--global-whitespace-xxl);
+  }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 calc(var(--global-whitespace) / 2);
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 24px;
+}
+
+.o-layout--gutter-xl {
+  margin: 0 -48px;
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+  padding: 0 var(--global-whitespace-xl);
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Componetn: Map
+    --- 
+    Map
+*/
+.c-map {
+  height: 100vh;
+}
+
+.leaflet-control-zoom {
+  bottom: 56px;
+}
+
+.leaflet-control-zoom:focus {
+}
+
+.leaflet-control-zoom-in:focus {
+  box-shadow: 0 0 5px 5px var(--custom-option__color_light);
+  position: relative;
+  z-index: 100000;
+}
+.leaflet-control-zoom-out:focus {
+  box-shadow: 0 0 5px 5px var(--custom-option__color_light);
+}
+
+.leaflet-marker-shadow {
+  opacity: 40%;
+}
+
+.leaflet-marker-icon:focus {
+  box-shadow: 0 0 5px 5px var(--custom-option__color_light);
+}
+
+/* .leaflet-marker-icon::after {
+  position: absolute;
+  z-index: 50000;
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+  box-shadow: 0 0 0px 0px lightblue;
+  content: "";
+
+  animation: pulse ease-in-out 1s infinite;
+}
+
+@keyframes pulse {
+  /*tranform: scale() werkt niet 
+
+  100% {
+    box-shadow: 0 0 8px 5px rgba(0, 132, 255, 0.3);
+  }
+} 
+*/
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+
+.c-form-field--option {
+  display: flex;
+  align-items: center;
+}
+
+.c-form-field--floating_label {
+  position: relative;
+}
+
+.c-switch {
+  margin-top: var(--global-whitespace-md);
+  position: relative;
+  z-index: 500;
+  display: grid;
+  grid-template-columns: repeat(3, calc(var(--global-whitespace-md) * 8));
+  /* display: flex; */
+  justify-content: center;
+}
+
+.c-lock {
+  position: absolute;
+  z-index: 500;
+  display: inline;
+  right: calc(var(--global-whitespace-md) * 2);
+  bottom: calc(var(--global-whitespace-md) * 5);
+}
+
+@media (min-width: 768px) {
+  .c-lock {
+    bottom: calc(var(--global-whitespace-md) * 3);
+  }
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 1px solid var(--input-borderColor, var(--global-input-borderColor));
+  /* border: 1px solid var(--global-color-neutral-xxx-light); */
+  border-radius: var(--global-borderRadius);
+  background-color: var(--global-input-backgroundColor);
+  color: var(--global-input-color);
+  font-family: inherit;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  outline: none;
+  transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+}
+
+.c-input:hover {
+  border-color: var(--global-input-hover-borderColor);
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--global-input-focus-borderColor);
+  box-shadow: var(--global-input-focus-boxShadow);
+}
+
+/* option input for checkboxes and radio buttons */
+
+.c-option {
+  margin-right: var(--global-whitespace-sm);
+}
+
+.c-custom-option:hover {
+  --custom-option-borderColor: var(--global-input-hover-borderColor);
+}
+
+/*Label*/
+.c-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding-bottom: var(--global-whitespace-sm);
+  font-size: 1rem;
+  line-height: 16px;
+  color: var(--label-color, var(--global-color-neutral-xx-dark));
+}
+
+.c-label--option {
+  padding-bottom: 0;
+}
+/* */
+
+/* .c-switch .c-custom-option__fake-input {
+  initial-letter: 2;
+  --fake-input-height: calc(var(--global-whitespace-md) * 3);
+  --fake-input-width: calc(var(--global-whitespace-md) * 3);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: var(--fake-input-width);
+  height: var(--fake-input-height);
+  margin-right: var(--global-whitespace-sm);
+  background: var(--global-input-backgroundColor);
+  border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
+  box-shadow: var(--custom-option-boxShadow, 0);
+  transition: border var(--global-transitionTiming-alpha), box-shadow var(--global-transitionTiming-alpha);
+  color: white;
+  border-radius: 100%;
+  margin: 0 calc(var(--global-whitespace-md) * 2);
+}
+
+.c-switch .c-option--hidden + .c-custom-option .c-custom-option__display__text {
+  display: none;
+}
+
+@media (min-width: 768px) { */
+.c-switch .c-custom-option__fake-input {
+  --fake-input-height: calc(var(--global-whitespace-md) * 2);
+  --fake-input-width: calc(var(--global-whitespace-md) * 8);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: var(--fake-input-width);
+  height: var(--fake-input-height);
+  margin: 0;
+  margin-right: var(--global-whitespace-sm);
+  background: var(--global-input-backgroundColor);
+  border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
+  box-shadow: var(--custom-option-boxShadow, 0);
+  transition: all ease 300ms;
+  color: white;
+  border-radius: 0%;
+}
+
+.c-switch .c-option--hidden + .c-custom-option .c-custom-option__display__text {
+  display: inline;
+}
+
+.c-switch .c-custom-option__fake-input--left {
+  border-radius: var(--global-whitespace-md) 0 0 var(--global-whitespace-md);
+}
+
+.c-switch .c-custom-option__fake-input--right {
+  border-radius: 0 var(--global-whitespace-md) var(--global-whitespace-md) 0;
+}
+/* } */
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-option,
+.c-option--hidden:active + .c-custom-option {
+  --custom-option-borderColor: var(--global-input-focus-borderColor);
+  --custom-option-boxShadow: var(--global-input-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__display {
+}
+
+.c-switch .c-option--hidden:hover + .c-custom-option .c-custom-option__fake-input {
+  --global-input-backgroundColor: var(--custom-option__color_light);
+
+  color: white;
+}
+.c-switch .c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input,
+.c-switch .c-option--hidden:active + .c-custom-option .c-custom-option__fake-input,
+.c-switch .c-option--hidden:focus-within + .c-custom-option .c-custom-option__fake-input {
+  /* --global-input-backgroundColor: var(--custom-option__color_light);
+  --custom-option-borderColor: black;
+  --global-borderWidth: 4px; */
+  box-shadow: 0 0 5px 5px var(--custom-option__color_light);
+  color: white;
+}
+.c-switch .c-option--hidden:checked + .c-custom-option .c-custom-option__fake-input {
+  --global-input-backgroundColor: var(--custom-option__color);
+}
+
+/* .c-option--hidden:hover + .c-custom-option .c-custom-option__display__text {
+  display: inline;
+}
+
+.c-switch .c-option--hidden:hover + .c-custom-option .c-custom-option__fake-input {
+  --fake-input-height: calc(var(--global-whitespace-md) * 2);
+  --fake-input-width: calc(var(--global-whitespace-md) * 8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--fake-input-width);
+  height: var(--fake-input-height);
+  margin: 0;
+  margin-right: var(--global-whitespace-sm);
+  background: var(--global-input-backgroundColor);
+  border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
+  box-shadow: var(--custom-option-boxShadow, 0);
+  transition: border var(--global-transitionTiming-alpha), box-shadow var(--global-transitionTiming-alpha);
+  color: white;
+  border-radius: 0 25%;
+} */
+
+.c-lock .c-custom-option__fake-input {
+  --fake-input-size: calc(var(--global-whitespace-md) * 2);
+
+  width: var(--fake-input-size);
+  height: var(--fake-input-size);
+}
+
+.c-lock .c-option--hidden:checked + .c-custom-option .c-lock_img {
+  content: url(/img/gps_fixed_black_24dp.svg);
+}
+
+.c-lock .c-option--hidden:hover + .c-custom-option .c-lock_img,
+.c-lock .c-option--hidden:focus + .c-custom-option .c-lock_img {
+  box-shadow: 0 0 5px 5px var(--custom-option__color_light);
+  fill: var(--custom-option__color_light);
+  color: white;
+}
+
+/*
+    Custom option
+    ---
+    Custom checkboxes & radio buttons
+*/
+
+/* Hide the actual input with the class .o-hide-accessible */
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral {
+  color: var(--global-color-neutral);
+}
+
+.u-color-neutral-dark {
+  color: var(--global-color-neutral-dark);
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: var(--global-whitespace-sm) !important;
+}
+
+.u-mb-md {
+  margin-bottom: var(--global-whitespace-md) !important;
+}
+
+.u-mb-lg {
+  margin-bottom: var(--global-whitespace-lg) !important;
+}
+
+.u-mb-xl {
+  margin-bottom: var(--global-whitespace-xl) !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 39em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+  text-align: center;
+}
+
+.u-align-center {
+  margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+  font-size: 14px;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-width-auto {
+  width: auto !important;
+}
+
+.u-1-of-2 {
+  width: 50% !important;
+}
+
+.u-1-of-3 {
+  width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+  width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+  width: 25% !important;
+}
+
+.u-3-of-4 {
+  width: 75% !important;
+}
+
+.u-1-of-5 {
+  width: 20% !important;
+}
+
+.u-2-of-5 {
+  width: 40% !important;
+}
+
+.u-3-of-5 {
+  width: 60% !important;
+}
+
+.u-4-of-5 {
+  width: 80% !important;
+}
+
+.u-1-of-6 {
+  width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+  width: 83.3333333333% !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp1 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp1 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp1 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp1 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp1 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp1 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp1 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp1 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp1 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp1 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp2 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp2 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp2 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp2 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp2 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp2 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp2 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp2 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp2 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp2 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp3 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp3 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp3 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp3 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp3 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp3 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp3 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp3 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp3 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp3 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp4 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp4 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp4 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp4 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp4 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp4 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp4 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp4 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp4 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp4 {
+    width: 83.3333333333% !important;
+  }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

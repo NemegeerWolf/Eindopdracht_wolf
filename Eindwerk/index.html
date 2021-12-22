@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISS follower</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/ISS.png">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="style/normalize.css" />
+    <link rel="stylesheet" href="style/screen.css" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="script/app.js"></script>
+  </head>
+  <body>
+    <div id="mapid" class="c-map">
+      
+      <form action="" class="c-switch ">
+        <span class="c-form-field c-form-field--option c-option-list__item ">
+          <input class="o-hide-accessible c-option c-option--hidden js-map-button" value="0" checked type="radio" name="mapOption" id="radio1" />
+          <label class="c-label c-label--option c-custom-option" for="radio1">
+            <span class="c-custom-option__fake-input c-custom-option__fake-input--left">
+              <span class="c-custom-option__display">
+              N<span class="c-custom-option__display__text">ormal</span>
+            </span>
+          </label>
+        </span>
+        <span class="c-form-field c-form-field--option c-option-list__item ">
+          <input class="o-hide-accessible c-option c-option--hidden js-map-button" value="1" type="radio" name="mapOption" id="radio2" />
+          <label class="c-label c-label--option c-custom-option" for="radio2">
+            <span class="c-custom-option__fake-input">
+              <span class="c-custom-option__display">
+              W<span class="c-custom-option__display__text">atercolor</span>
+            </span>
+          </label>
+        </span>
+        <span class="c-form-field c-form-field--option c-option-list__item ">
+          <input class="o-hide-accessible c-option c-option--hidden js-map-button" value="2" type="radio" name="mapOption" id="radio3" />
+          <label class="c-label c-label--option c-custom-option" for="radio3">
+            <span class="c-custom-option__fake-input c-custom-option__fake-input--right">
+              <span class="c-custom-option__display">
+              T<span class="c-custom-option__display__text">opographical</span>
+            </span>
+          </label>
+        </span>
+      </form>
+
+
+      <form action="" class="c-lock" >
+        <input class="o-hide-accessible c-option c-option--hidden js-lock_buttom" checked type="checkbox"
+                                    id="checkbox1" checked>
+                                <label class="c-label c-label--option c-custom-option" for="checkbox1">
+                                    <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+                                      <img class="c-lock_img" src="./img/gps_off_black_24dp.svg" alt="">
+                                    </span>
+                                   
+                                </label>
+      </form>
+      
+    </div>
+  </body>
+</html>
