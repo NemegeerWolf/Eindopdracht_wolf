@@ -1,0 +1,2 @@
+c-switch:
+    z-index= 500, omdat  z-index van een div van de kaart (map) 400 is.
